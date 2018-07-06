@@ -1,10 +1,12 @@
-<h4 class="pull-right"><%= link_to 'New Setlist', new_setlist_path %></h4>
-<h1>HWQ Set Lists</h1>
+<h4>
+  <%= link_to 'New Setlist', new_setlist_path %> /
+  <%= link_to 'Songs', songs_path %>
+</h4>
 
 <table class="table">
   <thead>
     <tr>
-      <th>Name</th>
+      <th>Setlists</th>
       <th class="text-center">Songs</th>
       <th class="text-center">Date</th>
       <th class="text-center">Actions</th>
@@ -18,7 +20,7 @@
         <td class="text-center"><%= setlist.songs.size %></td>
         <td class="text-center"><%= setlist.created_at.strftime("%F") %></td>
         <td class="text-center">
-          <ul class="list-inline actions">
+          <ul id="actions" class="list-inline">
             <li><%= link_to '✏️', edit_setlist_path(setlist) %></li>
             <li><%= link_to '🗑', setlist, method: :delete, data: { confirm: 'Are you sure?' } %></li>
           </ul>

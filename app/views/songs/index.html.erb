@@ -1,10 +1,12 @@
-<h4 class="pull-right"><%= link_to 'New Song', new_song_path %></h4>
-<h1>Songs</h1>
+<h4>
+  <%= link_to 'New Song', new_song_path %> /
+  <%= link_to 'Setlists', setlists_path %>
+</h4>
 
 <table class="table">
   <thead>
     <tr>
-      <th>Name</th>
+      <th>Songs</th>
       <th class="text-center">Count</th>
       <th class="text-center">Actions</th>
     </tr>
@@ -16,7 +18,7 @@
         <td><%= song.name %></td>
         <td class="text-center"><%= song.setlists.size %></td>
         <td class="text-center actions">
-          <ul class="list-inline">
+          <ul id="actions" class="list-inline">
             <li><%= link_to '✏️', edit_song_path(song) %></li>
             <li><%= link_to '🗑', song, method: :delete, data: { confirm: 'Are you sure?' } %></li>
           </ul>

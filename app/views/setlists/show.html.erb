@@ -1,13 +1,13 @@
-<h1><%= @setlist.name %></h1>
+<h2><%= @setlist.name %></h2>
 
-<h2><%= @setlist.notes %></h2>
+<p><%= @setlist.created_at.strftime("%B %e, %Y") %></p>
 
-<h3>Songs</h3>
+<p><%= @setlist.notes %></p>
 
 <ul class="list-unstyled">
 <% @setlist.songs.each do |song| %>
-  <li><%= song.name %></li>
+  <li class="song"><%= song.name %></li>
 <% end %>
 </ul>
 
-<%= link_to 'Edit', edit_setlist_path(@setlist) %>
+<p><%= link_to 'Edit', edit_setlist_path(@setlist) %></p>
