@@ -35,8 +35,7 @@ class SetlistsController < ApplicationController
 
   def destroy
     @setlist.destroy
-      redirect_to setlists_url, notice: 'Setlist was successfully destroyed.'
-    end
+    redirect_to setlists_url, notice: 'Setlist was successfully destroyed.'
   end
 
   private
@@ -46,6 +45,10 @@ class SetlistsController < ApplicationController
   end
 
   def setlist_params
-    params.require(:setlist).permit(:name, :notes)
+    params.require(:setlist).permit(
+      :name,
+      :notes,
+      song_ids: []
+    )
   end
 end

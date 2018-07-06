@@ -1,13 +1,13 @@
-<p id="notice"><%= notice %></p>
+<h4 class="pull-right"><%= link_to 'New Setlist', new_setlist_path %></h4>
+<h1>Set Lists</h1>
 
-<h1>Setlists</h1>
-
-<table>
+<table class="table">
   <thead>
     <tr>
       <th>Name</th>
-      <th>Notes</th>
-      <th colspan="3"></th>
+      <th class="text-center">Songs</th>
+      <th class="text-center">Date</th>
+      <th class="text-center">Actions</th>
     </tr>
   </thead>
 
@@ -15,15 +15,16 @@
     <% @setlists.each do |setlist| %>
       <tr>
         <td><%= setlist.name %></td>
-        <td><%= setlist.notes %></td>
-        <td><%= link_to 'Show', setlist %></td>
-        <td><%= link_to 'Edit', edit_setlist_path(setlist) %></td>
-        <td><%= link_to 'Destroy', setlist, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td class="text-center"><%= setlist.songs.size %></td>
+        <td class="text-center"><%= setlist.created_at.strftime("%F") %></td>
+        <td class="text-center">
+          <ul class="list-inline">
+            <li><%= link_to '🔎', setlist %></li>
+            <li><%= link_to '✏️', edit_setlist_path(setlist) %></li>
+            <li><%= link_to '🗑', setlist, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+          </ul>
+        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Setlist', new_setlist_path %>

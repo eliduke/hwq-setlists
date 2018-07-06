@@ -11,17 +11,29 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :name %>
-    <%= form.text_field :name %>
+    <%= form.text_field :name, class: "form-control input-lg" %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :notes %>
-    <%= form.text_area :notes %>
+    <%= form.text_area :notes, class: "form-control input-lg" %>
+  </div>
+
+  <div class="form-group">
+    <%= label_tag "Songs" %>
+    <ul class="list-unstyled songs">
+      <% Song.all.order(:name).each do |song| %>
+        <li>
+          <%= check_box_tag "setlist[song_ids][]", song.id, @setlist.songs.include?(song), id: song.name.parameterize %>
+          <%= label_tag song.name.parameterize, song.name %>
+        </li>
+      <% end %>
+    </ul>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit "Save", class: "btn btn-lg btn-primary btn-block" %>
   </div>
 <% end %>

@@ -1,14 +1,13 @@
-<p id="notice"><%= notice %></p>
+<h1><%= @setlist.name %></h1>
 
-<p>
-  <strong>Name:</strong>
-  <%= @setlist.name %>
-</p>
+<h2><%= @setlist.notes %></h2>
 
-<p>
-  <strong>Notes:</strong>
-  <%= @setlist.notes %>
-</p>
+<h3>Songs</h3>
 
-<%= link_to 'Edit', edit_setlist_path(@setlist) %> |
-<%= link_to 'Back', setlists_path %>
+<ul class="list-unstyled">
+<% @setlist.songs.each do |song| %>
+  <li><%= song.name %></li>
+<% end %>
+</ul>
+
+<%= link_to 'Edit', edit_setlist_path(@setlist) %>
