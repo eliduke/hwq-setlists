@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @setlist.name %>
+</p>
+
+<p>
+  <strong>Notes:</strong>
+  <%= @setlist.notes %>
+</p>
+
+<%= link_to 'Edit', edit_setlist_path(@setlist) %> |
+<%= link_to 'Back', setlists_path %>
