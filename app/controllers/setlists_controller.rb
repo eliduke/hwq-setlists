@@ -27,6 +27,12 @@ class SetlistsController < ApplicationController
 
   def update
     if @setlist.update(setlist_params)
+
+      # set position for each song in a setlist
+      setlist_params[:song_ids].each_with_index do |song_id, index|
+        @setlist.setlist_songs.find_by(song_id: song_id).update_attribute(:position, index + 1)
+      end
+
       redirect_to @setlist, notice: 'Setlist was successfully updated.'
     else
       render :edit
