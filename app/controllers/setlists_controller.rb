@@ -2,7 +2,7 @@ class SetlistsController < ApplicationController
   before_action :set_setlist, only: [:show, :edit, :update, :destroy]
 
   def index
-    @setlists = Setlist.all
+    @setlists = Setlist.all.order(songs_count: :desc)
   end
 
   def show

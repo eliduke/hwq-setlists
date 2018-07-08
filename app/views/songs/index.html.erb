@@ -16,7 +16,7 @@
     <% @songs.each do |song| %>
       <tr>
         <td><%= song.name %></td>
-        <td class="text-center"><%= song.setlists.size %></td>
+        <td class="text-center"><%= song.setlists_count %></td>
         <td class="text-center actions">
           <ul id="actions" class="list-inline">
             <li><%= link_to '✏️', edit_song_path(song) %></li>
