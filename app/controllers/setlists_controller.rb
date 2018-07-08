@@ -19,6 +19,7 @@ class SetlistsController < ApplicationController
     @setlist = Setlist.new(setlist_params)
 
     if @setlist.save
+      set_positions(setlist_params[:song_ids])
       redirect_to @setlist, notice: 'Setlist was successfully created.'
     else
       render :new
@@ -27,12 +28,7 @@ class SetlistsController < ApplicationController
 
   def update
     if @setlist.update(setlist_params)
-
-      # set position for each song in a setlist
-      setlist_params[:song_ids].each_with_index do |song_id, index|
-        @setlist.setlist_songs.find_by(song_id: song_id).update_attribute(:position, index + 1)
-      end
-
+      set_positions(setlist_params[:song_ids])
       redirect_to @setlist, notice: 'Setlist was successfully updated.'
     else
       render :edit
@@ -45,6 +41,12 @@ class SetlistsController < ApplicationController
   end
 
   private
+
+  def set_positions(song_ids)
+    song_ids.each_with_index do |song_id, index|
+      @setlist.setlist_songs.find_by(song_id: song_id).update_attribute(:position, index + 1)
+    end
+  end
 
   def set_setlist
     @setlist = Setlist.find(params[:id])
