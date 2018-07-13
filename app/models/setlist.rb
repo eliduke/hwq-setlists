@@ -4,6 +4,10 @@ class Setlist < ApplicationRecord
 
   validates :name, :songs, presence: true
 
+  def type
+    practice? ? "Practice" : "Show"
+  end
+
   def songs_for_form
     song_list = []
     song_list += songs

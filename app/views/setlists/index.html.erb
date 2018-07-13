@@ -16,7 +16,7 @@
   <tbody>
     <% @setlists.each do |setlist| %>
       <tr>
-        <td><%= link_to setlist.name, setlist %></td>
+        <td><small><%= setlist.type %></small><%= link_to setlist.name, setlist %></td>
         <td class="text-center"><%= setlist.songs_count %></td>
         <td class="text-center"><%= setlist.created_at.strftime("%b %e") %></td>
         <td class="text-center">
