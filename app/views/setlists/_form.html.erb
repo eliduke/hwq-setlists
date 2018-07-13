@@ -21,6 +21,13 @@
     <%= form.text_area :notes, class: "form-control input-lg" %>
   </div>
 
+  <div class="form-group practice-radios">
+    <%= form.radio_button :practice, "true" %>
+    <%= form.label :practice_true, "Practice" %>
+    <%= form.radio_button :practice, "false" %>
+    <%= form.label :practice_false, "Show" %>
+  </div>
+
   <div class="form-group">
     <%= label_tag "Songs" %>
     <ul class="list-unstyled songs sortable">

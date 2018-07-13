@@ -1,6 +1,6 @@
 <h2><%= @setlist.name %></h2>
 
-<p><%= @setlist.created_at.strftime("%B %e, %Y") %></p>
+<p><%= @setlist.practice? ? "Practice" : "Show" %> on <%= @setlist.created_at.strftime("%B %e, %Y") %></p>
 
 <p><%= @setlist.notes %></p>
 

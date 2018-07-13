@@ -56,6 +56,7 @@ class SetlistsController < ApplicationController
     params.require(:setlist).permit(
       :name,
       :notes,
+      :practice,
       song_ids: []
     )
   end
