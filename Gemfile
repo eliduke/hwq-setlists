@@ -11,6 +11,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
+gem 'aws-sdk-s3', require: false
 
 group :development, :test do
   gem 'pry'

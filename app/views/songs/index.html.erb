@@ -7,6 +7,7 @@
   <thead>
     <tr>
       <th>Songs</th>
+      <th class="text-center">Audios</th>
       <th class="text-center">Practices</th>
       <th class="text-center">Shows</th>
       <th class="text-center">Total</th>
@@ -17,7 +18,8 @@
   <tbody>
     <% @songs.each do |song| %>
       <tr>
-        <td><%= song.name %></td>
+        <td><%= link_to song.name, song %></td>
+        <td class="text-center"><%= song.audios.size %></td>
         <td class="text-center"><%= song.practices_count %></td>
         <td class="text-center"><%= song.shows_count %></td>
         <td class="text-center"><%= song.setlists_count %></td>

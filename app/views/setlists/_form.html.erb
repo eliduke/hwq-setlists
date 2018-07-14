@@ -1,48 +1,52 @@
-<%= form_with(model: setlist, local: true) do |form| %>
-  <% if setlist.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(setlist.errors.count, "error") %> prohibited this setlist from being saved:</h2>
+<div class="row">
+  <div class="col-sm-6 col-sm-offset-3">
+    <%= form_with(model: setlist, local: true) do |form| %>
+      <% if setlist.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(setlist.errors.count, "error") %> prohibited this setlist from being saved:</h2>
 
-      <ul>
-      <% setlist.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="form-group">
-    <%= form.label :name %>
-    <%= form.text_field :name, class: "form-control input-lg" %>
-  </div>
-
-  <div class="form-group">
-    <%= form.label :notes %>
-    <%= form.text_area :notes, class: "form-control input-lg" %>
-  </div>
-
-  <div class="form-group practice-radios">
-    <%= form.radio_button :practice, "true" %>
-    <%= form.label :practice_true, "Practice" %>
-    <%= form.radio_button :practice, "false" %>
-    <%= form.label :practice_false, "Show" %>
-  </div>
-
-  <div class="form-group">
-    <%= label_tag "Songs" %>
-    <ul class="list-unstyled songs sortable">
-      <% @setlist.songs_for_form.each do |song| %>
-        <li>
-          <%= label_tag song.name.parameterize do %>
-            <%= check_box_tag "setlist[song_ids][]", song.id, @setlist.songs.include?(song), id: song.name.parameterize %>
-            <%= song.name %>
+          <ul>
+          <% setlist.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
           <% end %>
-        </li>
+          </ul>
+        </div>
       <% end %>
-    </ul>
-  </div>
 
-  <div class="actions">
-    <%= form.submit "Save", class: "btn btn-lg btn-primary btn-block" %>
+      <div class="form-group">
+        <%= form.label :name %>
+        <%= form.text_field :name, class: "form-control input-lg" %>
+      </div>
+
+      <div class="form-group">
+        <%= form.label :notes %>
+        <%= form.text_area :notes, class: "form-control input-lg" %>
+      </div>
+
+      <div class="form-group practice-radios">
+        <%= form.radio_button :practice, "true" %>
+        <%= form.label :practice_true, "Practice" %>
+        <%= form.radio_button :practice, "false" %>
+        <%= form.label :practice_false, "Show" %>
+      </div>
+
+      <div class="form-group">
+        <%= label_tag "Songs" %>
+        <ul class="list-unstyled songs sortable">
+          <% @setlist.songs_for_form.each do |song| %>
+            <li>
+              <%= label_tag song.name.parameterize do %>
+                <%= check_box_tag "setlist[song_ids][]", song.id, @setlist.songs.include?(song), id: song.name.parameterize %>
+                <%= song.name %>
+              <% end %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+
+      <div class="actions">
+        <%= form.submit "Save", class: "btn btn-lg btn-primary btn-block" %>
+      </div>
+    <% end %>
   </div>
-<% end %>
+</div>

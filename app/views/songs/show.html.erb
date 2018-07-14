@@ -1,7 +1,19 @@
-<p>
-  <strong>Name:</strong>
-  <%= @song.name %>
-</p>
+<div class="row">
+  <div class="col-sm-6 col-sm-offset-3">
+    <h3><%= @song.name %></h3>
 
-<%= link_to 'Edit', edit_song_path(@song) %> |
-<%= link_to 'Back', songs_path %>
+    <ul class="list-unstyled">
+      <% @song.audios.each do |audio| %>
+        <li class="song">
+          <audio src="<%= url_for(audio) %>" controls></audio>
+          <p class="audio-info">
+            <%= url_for(audio).split("/").last %><br/>
+            <%= audio.created_at.strftime("%B %d, %Y") %>
+          </p>
+        </li>
+      <% end %>
+    </ul>
+
+    <p><%= link_to 'Edit', edit_song_path(@song) %> | <%= link_to 'Back', songs_path %></p>
+  </div>
+</div>
