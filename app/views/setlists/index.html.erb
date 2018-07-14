@@ -17,7 +17,13 @@
     <% @setlists.each do |setlist| %>
       <tr>
         <td><small><%= setlist.type %></small><%= link_to setlist.name, setlist %></td>
-        <td class="text-center"><%= setlist.songs_count %></td>
+        <td class="text-center">
+          <ul class="list-unstyled">
+            <% setlist.songs.order(:name).each do |song| %>
+              <li><%= song.name %></li>
+            <% end %>
+          </ul>
+        </td>
         <td class="text-center"><%= setlist.created_at.strftime("%b %e") %></td>
         <td class="text-center">
           <ul id="actions" class="list-inline">

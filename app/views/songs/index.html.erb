@@ -7,7 +7,9 @@
   <thead>
     <tr>
       <th>Songs</th>
-      <th class="text-center">Setlists</th>
+      <th class="text-center">Practices</th>
+      <th class="text-center">Shows</th>
+      <th class="text-center">Total</th>
       <th class="text-center">Actions</th>
     </tr>
   </thead>
@@ -16,6 +18,8 @@
     <% @songs.each do |song| %>
       <tr>
         <td><%= song.name %></td>
+        <td class="text-center"><%= song.practices_count %></td>
+        <td class="text-center"><%= song.shows_count %></td>
         <td class="text-center"><%= song.setlists_count %></td>
         <td class="text-center actions">
           <ul id="actions" class="list-inline">
