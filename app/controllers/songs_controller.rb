@@ -1,25 +1,20 @@
 class SongsController < ApplicationController
   before_action :set_song, only: [:show, :edit, :update, :destroy]
 
-  # GET /songs
   def index
     @songs = Song.all.order(setlists_count: :desc)
   end
 
-  # GET /songs/1
   def show
   end
 
-  # GET /songs/new
   def new
     @song = Song.new
   end
 
-  # GET /songs/1/edit
   def edit
   end
 
-  # POST /songs
   def create
     @song = Song.new(song_params)
 
@@ -30,7 +25,6 @@ class SongsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /songs/1
   def update
     if @song.update(song_params)
       redirect_to @song, notice: 'Song was successfully updated.'
@@ -39,20 +33,24 @@ class SongsController < ApplicationController
     end
   end
 
-  # DELETE /songs/1
   def destroy
     @song.destroy
     redirect_to songs_url, notice: 'Song was successfully destroyed.'
   end
 
-  private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_song
-      @song = Song.find(params[:id])
-    end
+  def audio_destroy
+    audio = ActiveStorage::Attachment.find(params[:id])
+    audio.purge
+    redirect_back(fallback_location: songs_path)
+  end
 
-    # Only allow a trusted parameter "white list" through.
-    def song_params
-      params.require(:song).permit(:name, audios: [])
-    end
+  private
+
+  def set_song
+    @song = Song.find(params[:id])
+  end
+
+  def song_params
+    params.require(:song).permit(:name, audios: [])
+  end
 end

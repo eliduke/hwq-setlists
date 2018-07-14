@@ -18,23 +18,31 @@
         <%= form.text_field :name, class: "form-control input-lg" %>
       </div>
 
+      <% if @song.audios.attached? %>
+        <label>Audios</label>
+        <ul class="list-unstyled">
+          <% @song.audios.each do |audio| %>
+          <li class="song">
+            <audio src="<%= url_for(audio) %>" controls></audio>
+            <p class="pull-right">
+              <%=
+                link_to "🗑",
+                song_audio_destroy_path(@song, audio),
+                method: :delete,
+                data: { confirm: 'Are you sure you wanna delete this audio?' }
+              %>
+            </p>
+            <p class="audio-info">
+              <%= url_for(audio).split("/").last.split(".").first %><br/>
+              <%= audio.created_at.strftime("%B %d, %Y") %>
+            </p>
+          </li>
+          <% end %>
+        </ul>
+      <% end %>
+
       <div class="form-group">
-        <%= form.label :audios %>
-
-        <% if @song.audios.attached? %>
-          <ul class="list-unstyled">
-            <% @song.audios.each do |audio| %>
-            <li class="song">
-              <audio src="<%= url_for(audio) %>" controls></audio>
-              <p class="audio-info">
-                <%= url_for(audio).split("/").last %><br/>
-                <%= audio.created_at.strftime("%B %d, %Y") %>
-              </p>
-            </li>
-            <% end %>
-          </ul>
-        <% end %>
-
+        <%= form.label :audios, "Add New Audios" %>
         <%= form.file_field :audios, multiple: true, id: :song_audios, class: "form-control input-lg" %>
       </div>
 
