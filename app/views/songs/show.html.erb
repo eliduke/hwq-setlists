@@ -22,7 +22,7 @@
       <ul class="list-unstyled">
         <% @song.setlists.each do |setlist| %>
           <li class="song">
-            <%= "#{setlist.name} on #{setlist.created_at.strftime("%B %e, %Y")}" %>
+            <%= link_to setlist.name, setlist %>
           </li>
         <% end %>
       </ul>
