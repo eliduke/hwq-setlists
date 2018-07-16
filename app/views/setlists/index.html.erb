@@ -14,7 +14,7 @@
         <td><small><%= setlist.type %></small><%= link_to setlist.name, setlist %></td>
         <td class="text-center">
           <ul class="list-unstyled">
-            <% setlist.songs.order(:name).each do |song| %>
+            <% setlist.songs.each do |song| %>
               <li><%= link_to song.name, song %></li>
             <% end %>
           </ul>
