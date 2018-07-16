@@ -1,13 +1,32 @@
-<h2><%= @setlist.name %></h2>
+<div class="row">
+  <div class="col-sm-6 col-sm-offset-3">
+    <p><small><%= @setlist.type %> on <%= @setlist.created_at.strftime("%B %e, %Y") %></small></p>
 
-<p><%= @setlist.type %> on <%= @setlist.created_at.strftime("%B %e, %Y") %></p>
+    <h2><%= @setlist.name %></h2>
 
-<p><%= @setlist.notes %></p>
+    <p><%= @setlist.notes %></p>
 
-<ul class="list-unstyled">
-<% @setlist.songs.each do |song| %>
-  <li class="song"><%= song.name %></li>
-<% end %>
-</ul>
+    <ul class="list-unstyled setlist">
+    <% @setlist.songs.each do |song| %>
+      <li class="song"><%= song.name %></li>
+    <% end %>
+    </ul>
 
-<p><%= link_to 'Edit', edit_setlist_path(@setlist) %></p>
+    <% if @setlist.audios.attached? %>
+      <h2>Audios</h2>
+      <ul class="list-unstyled">
+        <% @setlist.audios.each do |audio| %>
+          <li class="song">
+            <audio src="<%= url_for(audio) %>" controls></audio>
+            <p class="audio-info">
+              <%= audio.blob.filename.base %>
+              <small><%= audio.created_at.strftime("%B %d, %Y") %></small>
+            </p>
+          </li>
+        <% end %>
+      </ul>
+    <% end %>
+
+    <p><%= link_to 'Edit', edit_setlist_path(@setlist) %></p>
+  </div>
+</div>

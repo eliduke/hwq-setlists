@@ -5,5 +5,7 @@ Rails.application.routes.draw do
     delete "audio/:id", action: :audio_destroy, as: :audio_destroy
   end
 
-  resources :setlists
+  resources :setlists do
+    delete "audio/:id", action: :audio_destroy, as: :audio_destroy
+  end
 end

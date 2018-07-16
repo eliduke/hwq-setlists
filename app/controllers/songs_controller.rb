@@ -39,8 +39,7 @@ class SongsController < ApplicationController
   end
 
   def audio_destroy
-    audio = ActiveStorage::Attachment.find(params[:id])
-    audio.purge
+    ActiveStorage::Attachment.find(params[:id]).purge
     redirect_back(fallback_location: songs_path)
   end
 

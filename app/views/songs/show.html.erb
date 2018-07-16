@@ -1,18 +1,32 @@
 <div class="row">
   <div class="col-sm-6 col-sm-offset-3">
-    <h3><%= @song.name %></h3>
+    <h2><%= @song.name %></h2>
 
-    <ul class="list-unstyled">
-      <% @song.audios.each do |audio| %>
-        <li class="song">
-          <audio src="<%= url_for(audio) %>" controls></audio>
-          <p class="audio-info">
-            <%= audio.blob.filename.base %>
-            <small><%= audio.created_at.strftime("%B %d, %Y") %></small>
-          </p>
-        </li>
-      <% end %>
-    </ul>
+    <% if @song.audios.attached? %>
+      <h2>Audios</h2>
+      <ul class="list-unstyled">
+        <% @song.audios.each do |audio| %>
+          <li class="song">
+            <audio src="<%= url_for(audio) %>" controls></audio>
+            <p class="audio-info">
+              <%= audio.blob.filename.base %>
+              <small><%= audio.created_at.strftime("%B %d, %Y") %></small>
+            </p>
+          </li>
+        <% end %>
+      </ul>
+    <% end %>
+
+    <% if @song.setlists.present? %>
+      <h2>Set Lists</h2>
+      <ul class="list-unstyled">
+        <% @song.setlists.each do |setlist| %>
+          <li class="song">
+            <%= "#{setlist.name} on #{setlist.created_at.strftime("%B %e, %Y")}" %>
+          </li>
+        <% end %>
+      </ul>
+    <% end %>
 
     <p><%= link_to 'Edit', edit_song_path(@song) %> | <%= link_to 'Back', songs_path %></p>
   </div>

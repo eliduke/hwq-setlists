@@ -3,6 +3,7 @@
     <tr>
       <th>Setlists</th>
       <th class="text-center"><%= link_to "Songs", songs_path %></th>
+      <th class="text-center">Audios</th>
       <th class="text-center">Date</th>
       <th class="text-right">Actions</th>
     </tr>
@@ -19,6 +20,7 @@
             <% end %>
           </ul>
         </td>
+        <td class="text-center"><%= setlist.audios.size %></td>
         <td class="text-center"><%= setlist.created_at.strftime("%b %e") %></td>
         <td class="text-right">
           <ul id="actions" class="list-inline">

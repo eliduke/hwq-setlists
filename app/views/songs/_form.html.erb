@@ -42,10 +42,9 @@
       <% end %>
 
       <div class="form-group">
-        <%= form.label :audios, "Add New Audios" %>
+        <%= form.label :audios, "Add Audios" %>
         <%= form.file_field :audios, multiple: true, id: :song_audios, class: "form-control input-lg" %>
       </div>
-
 
       <div class="actions">
         <%= form.submit "Save", class: "btn btn-lg btn-primary btn-block" %>
