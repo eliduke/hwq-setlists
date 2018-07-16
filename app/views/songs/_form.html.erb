@@ -32,9 +32,9 @@
                 data: { confirm: 'Are you sure you wanna delete this audio?' }
               %>
             </p>
-            <p class="audio-info">
-              <%= url_for(audio).split("/").last.split(".").first %><br/>
-              <%= audio.created_at.strftime("%B %d, %Y") %>
+            <p class="audio-info text-left">
+              <%= audio.blob.filename.base %>
+              <small><%= audio.created_at.strftime("%B %d, %Y") %></small>
             </p>
           </li>
           <% end %>

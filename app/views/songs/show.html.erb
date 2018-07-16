@@ -7,8 +7,8 @@
         <li class="song">
           <audio src="<%= url_for(audio) %>" controls></audio>
           <p class="audio-info">
-            <%= url_for(audio).split("/").last %><br/>
-            <%= audio.created_at.strftime("%B %d, %Y") %>
+            <%= audio.blob.filename.base %>
+            <small><%= audio.created_at.strftime("%B %d, %Y") %></small>
           </p>
         </li>
       <% end %>
