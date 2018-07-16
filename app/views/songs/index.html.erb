@@ -1,10 +1,10 @@
 <table class="table">
   <thead>
     <tr>
-      <th>Songs</th>
-      <th class="text-center">Audios</th>
-      <th class="text-center">Practices</th>
-      <th class="text-center">Shows</th>
+      <th>Song</th>
+      <th class="text-center hide-on-mobile">Audios</th>
+      <th class="text-center hide-on-mobile">Practices</th>
+      <th class="text-center hide-on-mobile">Shows</th>
       <th class="text-center"><%= link_to "Setlists", setlists_path %></th>
       <th class="text-right">Actions</th>
     </tr>
@@ -14,11 +14,11 @@
     <% @songs.each do |song| %>
       <tr>
         <td><%= link_to song.name, song %></td>
-        <td class="text-center"><%= song.audios.size %></td>
-        <td class="text-center"><%= song.practices_count %></td>
-        <td class="text-center"><%= song.shows_count %></td>
+        <td class="text-center hide-on-mobile"><%= song.audios.size %></td>
+        <td class="text-center hide-on-mobile"><%= song.practices_count %></td>
+        <td class="text-center hide-on-mobile"><%= song.shows_count %></td>
         <td class="text-center"><%= song.setlists_count %></td>
-        <td class="text-right actions">
+        <td class="text-right">
           <ul id="actions" class="list-inline">
             <li><%= link_to '✏️', edit_song_path(song) %></li>
             <li><%= link_to '🗑', song, method: :delete, data: { confirm: 'Are you sure?' } %></li>

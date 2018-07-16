@@ -1,9 +1,9 @@
 <table class="table">
   <thead>
     <tr>
-      <th>Setlists</th>
+      <th>Setlist</th>
       <th class="text-center"><%= link_to "Songs", songs_path %></th>
-      <th class="text-center">Audios</th>
+      <th class="text-center hide-on-mobile">Audios</th>
       <th class="text-center">Date</th>
       <th class="text-right">Actions</th>
     </tr>
@@ -14,13 +14,14 @@
       <tr>
         <td><small><%= setlist.type %></small><%= link_to setlist.name, setlist %></td>
         <td class="text-center">
-          <ul class="list-unstyled">
+          <ul class="list-unstyled hide-on-mobile">
             <% setlist.songs.each do |song| %>
               <li><%= link_to song.name, song %></li>
             <% end %>
           </ul>
+          <span class="hide-on-desktop"><%= setlist.songs.size %></span>
         </td>
-        <td class="text-center"><%= setlist.audios.size %></td>
+        <td class="text-center hide-on-mobile"><%= setlist.audios.size %></td>
         <td class="text-center"><%= setlist.created_at.strftime("%b %e") %></td>
         <td class="text-right">
           <ul id="actions" class="list-inline">

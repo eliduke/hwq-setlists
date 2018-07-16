@@ -28,6 +28,7 @@ a:hover {
 
 .btn-new {
   font-weight: bold;
+  margin-top: 5px;
 }
 
 label {
@@ -36,4 +37,32 @@ label {
 
 input[type=radio] {
   margin-right: 5px;
+}
+
+ul#actions li {
+  padding: 0;
+}
+
+.mobile-warning {
+  margin: 25px 0 20px 0;
+  padding: 20px;
+  border: 10px solid #eee;
+  background-color: #5BC0DE;
+  color: white;
+  font-weight: bold;
+
+  p {
+    margin: 0;
+    padding: 0;
+  }
+}
+
+@media (max-width: 375px) {
+  .hide-on-mobile { display: none }
+  .hide-on-desktop { display: true }
+}
+
+@media (min-width: 376px) {
+  .hide-on-mobile { display: true }
+  .hide-on-desktop { display: none }
 }
