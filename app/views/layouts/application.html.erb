@@ -30,13 +30,15 @@
 
       <hr/>
 
+      <%= yield %>
+
       <% if params[:action] == "index" %>
         <div class="mobile-warning hide-on-desktop">
+          <h3>PRO TIP</h3>
           <p>If you turn your device sidewards, you'll see more detailed info about each <%= params[:controller].singularize %>.</p>
         </div>
       <% end %>
 
-      <%= yield %>
     </div>
   </body>
 </html>
