@@ -26,34 +26,51 @@ a:hover {
   text-decoration: none;
 }
 
-.btn-new {
-  font-weight: bold;
-  margin-top: 5px;
-}
-
 label {
   font-size: 130%;
 }
 
-input[type=radio] {
-  margin-right: 5px;
+small {
+  display: block;
+  color: #999;
+}
+
+audio {
+  width: 100%;
+  margin-top: 5px;
+}
+
+p.audio-info {
+  margin-bottom: 30px;
+  font-size: 65%;
 }
 
 ul#actions li {
   padding: 0;
 }
 
+li.big-and-centered {
+  text-align: center;
+  font-size: 170%;
+}
+
+.btn-new {
+  font-weight: bold;
+  margin-top: 5px;
+}
+
 .mobile-warning {
-  margin: 25px 0 20px 0;
   padding: 20px;
+  margin: 20px 0;
   border: 10px solid #eee;
   background-color: #5BC0DE;
-  color: white;
   font-weight: bold;
+  color: white;
 
   h3 {
     margin: 0 0 5px 0;
-    padding: 0;
+    padding: 0 0 5px 0;
+    border-bottom: 1px dashed #eee;
   }
 
   p {

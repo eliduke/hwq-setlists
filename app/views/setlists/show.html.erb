@@ -7,16 +7,16 @@
     <p><%= @setlist.notes %></p>
 
     <ul class="list-unstyled setlist">
-    <% @setlist.songs.each do |song| %>
-      <li class="song"><%= song.name %></li>
-    <% end %>
+      <% @setlist.songs.each do |song| %>
+        <li class="big-and-centered"><%= song.name %></li>
+      <% end %>
     </ul>
 
     <% if @setlist.audios.attached? %>
       <h2>Audios</h2>
       <ul class="list-unstyled">
         <% @setlist.audios.each do |audio| %>
-          <li class="song">
+          <li class="big-and-centered">
             <audio src="<%= url_for(audio) %>" controls></audio>
             <p class="audio-info">
               <%= audio.blob.filename.base %>

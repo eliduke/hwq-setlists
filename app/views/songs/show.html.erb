@@ -6,7 +6,7 @@
       <h2>Audios</h2>
       <ul class="list-unstyled">
         <% @song.audios.each do |audio| %>
-          <li class="song">
+          <li class="big-and-centered">
             <audio src="<%= url_for(audio) %>" controls></audio>
             <p class="audio-info">
               <%= audio.blob.filename.base %>
@@ -21,7 +21,7 @@
       <h2>Set Lists</h2>
       <ul class="list-unstyled">
         <% @song.setlists.each do |setlist| %>
-          <li class="song">
+          <li class="big-and-centered">
             <%= link_to setlist.name, setlist %>
           </li>
         <% end %>

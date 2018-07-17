@@ -22,7 +22,7 @@
         <label>Audios</label>
         <ul class="list-unstyled">
           <% @song.audios.each do |audio| %>
-          <li class="song">
+          <li class="big-and-centered">
             <audio src="<%= url_for(audio) %>" controls></audio>
             <p class="pull-right">
               <%=

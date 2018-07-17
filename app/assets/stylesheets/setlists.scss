@@ -1,17 +1,47 @@
-#setlist_practice_false {
-  margin-left: 30px;
-}
-
-.practice-radios {
-  display: table;
-  margin: 10px auto 20px auto;
-}
+// SHOW
 
 ul.setlist {
   margin-bottom: 50px;
 }
 
-small {
+// _FORM
+
+.label-text-center {
   display: block;
-  color: #999;
+  text-align: center;
+}
+
+.practice-radios label,
+.song-checkboxes label {
+  font-weight: normal;
+  margin-bottom: 0;
+  padding: 10px 0;
+  text-align: center;
+  background: #efefef;
+  cursor: pointer;
+  width: 100%
+}
+
+.practice-radios {
+  margin: 30px 0 40px 0;
+
+  label { width: 49% }
+}
+
+.song-checkboxes {
+  width: 85%;
+  margin: 15px auto 40px auto;
+
+  li { margin-bottom: 15px }
+}
+
+input[type=checkbox],
+input[type=radio] {
+  display:none
+}
+
+input[type=checkbox]:checked + label,
+input[type=radio]:checked + label {
+  background: #5BC0DE;
+  color: #fff;
 }

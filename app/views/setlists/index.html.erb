@@ -12,7 +12,10 @@
   <tbody>
     <% @setlists.each do |setlist| %>
       <tr>
-        <td><small><%= setlist.type %></small><%= link_to setlist.name, setlist %></td>
+        <td>
+          <small><%= setlist.type %></small>
+          <%= link_to setlist.name, setlist %>
+        </td>
         <td class="text-center">
           <ul class="list-unstyled hide-on-mobile">
             <% setlist.songs.each do |song| %>
