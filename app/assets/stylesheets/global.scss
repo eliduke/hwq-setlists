@@ -9,6 +9,7 @@ h1 {
   text-align: center;
 }
 
+
 h2, h3, h4, p {
   margin-top: 0;
   text-align: center;
@@ -68,15 +69,7 @@ li.big-and-centered {
 
 .btn-new {
   font-weight: 500;
-  background: #83cfe5;
-  border-color: #83cfe5;
   margin-top: 5px;
-}
-
-.btn-new:hover {
-  background: #5BC0DE;
-  border-color: #acdfee;
-  color: #fff;
 }
 
 .btn-new + .btn-new {
@@ -84,8 +77,11 @@ li.big-and-centered {
 }
 
 .header-links {
-  width: 240px;
-  margin: 0 auto;
+  text-align: center;
+}
+
+.buttons {
+  display: inline-block;
 }
 
 .mobile-warning {
