@@ -20,13 +20,12 @@
 
   <body>
     <div class="container">
-      <%=
-        link_to "➕ NEW #{params[:controller].upcase.singularize}",
-        { action: "new" },
-        class: "btn btn-info btn-new pull-right"
-      %>
+      <h1><%= link_to "Songs", songs_path %> &amp; <%= link_to "Setlists", setlists_path %></h1>
 
-      <h1><%= link_to "SongTraker", root_path %></h1>
+      <div class="header-links">
+        <%= link_to "NEW SONG", new_song_path, class: "btn btn-default btn-new" %>
+        <%= link_to "NEW SETLIST", new_setlist_path, class: "btn btn-default btn-new" %>
+      </div>
 
       <hr/>
 

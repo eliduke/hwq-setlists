@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root "setlists#index"
+  root "songs#index"
 
   resources :songs do
     delete "audio/:id", action: :audio_destroy, as: :audio_destroy

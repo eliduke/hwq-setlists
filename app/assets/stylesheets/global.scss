@@ -4,7 +4,9 @@ body {
 }
 
 h1 {
+  color: #ccc;
   margin-top: 0;
+  text-align: center;
 }
 
 h2, h3, h4, p {
@@ -13,7 +15,7 @@ h2, h3, h4, p {
 }
 
 h3 {
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 }
 
 a {
@@ -28,6 +30,7 @@ a:hover {
 
 label {
   font-size: 130%;
+  font-weight: normal;
 }
 
 small {
@@ -40,9 +43,18 @@ audio {
   margin-top: 5px;
 }
 
+// _FORMs
+.audios {
+  p.help-block { margin-bottom: 30px }
+}
+
 p.audio-info {
   margin-bottom: 30px;
   font-size: 65%;
+}
+
+p.help-block {
+  color: #ccc;
 }
 
 ul#actions li {
@@ -55,8 +67,17 @@ li.big-and-centered {
 }
 
 .btn-new {
-  font-weight: bold;
+  background: #acdfee;
   margin-top: 5px;
+}
+
+.btn-new + .btn-new {
+  margin-left: 10px;
+}
+
+.header-links {
+  width: 240px;
+  margin: 0 auto;
 }
 
 .mobile-warning {
@@ -87,4 +108,10 @@ li.big-and-centered {
 @media (min-width: 376px) {
   .hide-on-mobile { display: true }
   .hide-on-desktop { display: none }
+  h1 { text-align: left }
+
+  .header-links {
+    float: right;
+    margin-top: -50px;
+  }
 }
