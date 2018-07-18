@@ -67,8 +67,16 @@ li.big-and-centered {
 }
 
 .btn-new {
-  background: #acdfee;
+  font-weight: 500;
+  background: #83cfe5;
+  border-color: #83cfe5;
   margin-top: 5px;
+}
+
+.btn-new:hover {
+  background: #5BC0DE;
+  border-color: #acdfee;
+  color: #fff;
 }
 
 .btn-new + .btn-new {
