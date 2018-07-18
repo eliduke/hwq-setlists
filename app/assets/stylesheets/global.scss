@@ -76,12 +76,10 @@ li.big-and-centered {
   margin-left: 10px;
 }
 
+// center div w/o width hack
 .header-links {
   text-align: center;
-}
-
-.buttons {
-  display: inline-block;
+  .buttons { display: inline-block }
 }
 
 .mobile-warning {
