@@ -103,6 +103,9 @@ li.big-and-centered {
 }
 
 .input-lg {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
   box-shadow: none;
   border: 1px solid #ededed
 }
