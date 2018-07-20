@@ -4,7 +4,7 @@
 
     <h2><%= @setlist.name %></h2>
 
-    <p><%= @setlist.notes %></p>
+    <p><%= simple_format(@setlist.notes) %></p>
 
     <ul class="list-unstyled setlist">
       <% @setlist.songs.each do |song| %>
