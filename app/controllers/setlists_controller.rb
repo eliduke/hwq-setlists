@@ -2,7 +2,7 @@ class SetlistsController < ApplicationController
   before_action :set_setlist, only: [:show, :edit, :update, :destroy]
 
   def index
-    @setlists = Setlist.all.order(created_at: :desc)
+    @setlists = Setlist.all.order(played_on: :desc)
   end
 
   def show
@@ -62,6 +62,7 @@ class SetlistsController < ApplicationController
       :name,
       :notes,
       :practice,
+      :played_on,
       song_ids: [],
       audios: []
     )

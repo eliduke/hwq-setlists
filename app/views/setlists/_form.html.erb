@@ -30,6 +30,27 @@
         <%= form.label :practice_false, "Show" %>
       </div>
 
+      <div class="played-on">
+        <p class="js-played-on-link text-center">
+          <%= played_on_link %>
+        </p>
+
+        <div class="form-group js-played-on-selects" style="display:none">
+          <%= form.label :played_on, class: "sr-only" %>
+          <%= form.datetime_select :played_on,
+            {
+              order: [:month, :day, :year],
+              use_short_month: true,
+              ampm: true,
+              datetime_separator: "",
+              time_separator: "",
+              end_year: Time.now.year
+            },
+            { class: "form-control" }
+          %>
+        </div>
+      </div>
+
       <div class="form-group songs">
         <h3>SONGS</h3>
         <p class="help-block hide-on-mobile">

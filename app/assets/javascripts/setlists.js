@@ -33,5 +33,12 @@ $(function() {
       newest_unchecked_song.insertBefore(firstUncheckedSong);
     }
   });
+
+  // Shows BOUGHT ON date time selects
+	$(".js-show-played-on-selects").click(function(e) {
+		e.preventDefault();
+		$(".js-played-on-link").hide();
+		$(".js-played-on-selects").show();
+	});
 });
 
